@@ -1,4 +1,4 @@
-## 📊 Credit Scoring Business Understanding
+## 📊 Credit Scoring Business Understanding TASK 1
 
 In regulated financial services, **_ credit scoring models _** must balance predictive performance with transparency, fairness, and compliance. This project is guided by key considerations from the Basel II Accord and the unique data constraints faced; such as the absence of direct default labels. This section summarizes the business and regulatory context for building a responsible and robust credit scoring model.
 
@@ -40,3 +40,11 @@ However, using a proxy comes with business risks:
     - Increased risk of non-compliance
 
 In financial applications, the model choice depends on balancing **accuracy** with **interpretability**. Often, interpretable models are prioritized in production, while complex models may support internal analytics and insights.
+
+## 🔍 Key EDA Insights ---- TASK 2
+
+1. The `Amount` feature is highly right-skewed, with a small number of large transactions. The same way the `Value` variable behaves similarly to Amount, showing strong right-skew!!
+2. The majority of transactions come through the `IOS and Android` channel, indicating platform preference.
+3. The `FraudResult` is highly imbalanced, with very few fraudulent cases `(only 193 outof a total of 95662) `.
+4. The boxplot for putlier Detection indicates that the variable `Amount` and `Value` has a large number of outliers, mostly on the higher end, and the distribution is heavily right-skewed.
+5. There are no missing value in the dataset!
