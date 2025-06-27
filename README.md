@@ -1,49 +1,40 @@
-# credit-risk-model
+## 📊 Credit Scoring Business Understanding
 
-### Credit Scoring Business Understanding
+In regulated financial services, credit scoring models must balance predictive performance with transparency, fairness, and compliance. This project is guided by key considerations from the Basel II Accord and the unique data constraints we face—such as the absence of direct default labels. This section summarizes the business and regulatory context for building a responsible and robust credit scoring model.
 
-1. Basel II Accord and Model Interpretability
+### 1. Basel II Accord and the Need for Interpretability
 
-The Basel II Accord emphasizes accurate risk measurement and capital adequacy to ensure financial stability. This requirement directly impacts how credit risk models must be developed. Specifically, models must be interpretable, transparent, and auditable, enabling financial institutions to explain risk predictions to regulators and stakeholders. An interpretable model facilitates trust, governance, and compliance, ensuring that risk-based decisions can be justified and that the model’s logic aligns with regulatory expectations.
+The Basel II Capital Accord requires financial institutions to quantify and document risk exposures using sound, explainable methods. As a result, credit risk models must be interpretable and auditable. Building a well-documented model that clearly shows how risk is estimated ensures regulatory compliance, builds institutional trust, and enables human oversight in decision-making.
 
-2. The Need for a Proxy Variable and Business Risks
+### 2. The Role of Proxy Variables and Associated Risks
 
-In our dataset, there is no direct label indicating loan default, which is a standard requirement for supervised credit risk modeling. Therefore, we must engineer a proxy target variable that reasonably approximates default behavior. For example, clustering disengaged customers based on Recency, Frequency, and Monetary (RFM) activity can serve as a proxy for risk.
+Since the dataset lacks a direct "default" label (i.e., no clear indicator of whether a customer failed to repay), we must create a **proxy variable** to estimate credit risk. This involves clustering behavioral data—like Recency, Frequency, and Monetary value (RFM)—to label disengaged users as "high risk".
 
-However, this introduces business risks, such as:
+However, using a proxy comes with business risks:
 
-    Mislabeling risk: Some customers labeled as "high risk" may not actually default.
+- **Misclassification:** Customers may be incorrectly labeled, affecting real-world credit decisions.
+- **Bias amplification:** A poorly defined proxy can introduce or reinforce systemic bias.
+- **Regulatory scrutiny:** Proxies must be carefully justified; unjustified proxies may not pass compliance reviews.
 
-    Bias amplification: If the proxy is poorly defined, the model could reinforce incorrect assumptions.
+### 3. Trade-offs Between Simple and Complex Models
 
-    Regulatory exposure: Models based on synthetic or proxy targets may not hold up to regulatory scrutiny unless justified with clear reasoning and validation.
+- **Logistic Regression with Weight of Evidence (WoE)**
 
-3. Model Trade-offs: Simplicity vs Performance
+  - ✅ Pros:
+    - Highly interpretable and transparent
+    - Easy to explain to regulators and stakeholders
+    - Well-aligned with traditional credit scoring methods
+  - ❌ Cons:
+    - May fail to capture complex patterns in customer behavior
+    - Lower predictive accuracy in some cases
 
-There is a critical trade-off between simple, interpretable models and complex, high-performance models:
+- **Gradient Boosting Models (e.g., XGBoost, LightGBM)**
+  - ✅ Pros:
+    - High predictive power
+    - Captures complex, non-linear feature interactions
+  - ❌ Cons:
+    - Opaque decision logic ("black-box" models)
+    - Difficult to interpret and justify in high-stakes, regulated environments
+    - Increased risk of non-compliance
 
-Model Trade-offs: Simplicity vs Performance
-
-    Logistic Regression with WoE
-
-        ✅ Pros:
-            Highly interpretable
-            Transparent decision rules
-            Easy to validate and explain to regulators
-
-        ❌ Cons:
-            May underperform on complex patterns
-            Lower predictive power
-
-    Gradient Boosting (e.g., XGBoost, LightGBM)
-
-        ✅ Pros:
-            High predictive accuracy
-            Captures non-linear relationships and feature interactions
-
-        ❌ Cons:
-            Less interpretable (black-box behavior)
-            Harder to explain to stakeholders
-            Greater risk of regulatory scrutiny
-
-**_ In regulated financial contexts, the choice depends on the balance between predictive power and the need for transparency, fairness, and compliance. Often, interpretable models are preferred in production while complex models may support internal analysis. _**
+In financial applications, the model choice depends on balancing **accuracy** with **interpretability**. Often, interpretable models are prioritized in production, while complex models may support internal analytics and insights.
