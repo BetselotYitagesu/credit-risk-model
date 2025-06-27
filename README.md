@@ -1,6 +1,6 @@
 ## 📊 Credit Scoring Business Understanding
 
-In regulated financial services, credit scoring models must balance predictive performance with transparency, fairness, and compliance. This project is guided by key considerations from the Basel II Accord and the unique data constraints we face—such as the absence of direct default labels. This section summarizes the business and regulatory context for building a responsible and robust credit scoring model.
+In regulated financial services, **_ credit scoring models _** must balance predictive performance with transparency, fairness, and compliance. This project is guided by key considerations from the Basel II Accord and the unique data constraints faced; such as the absence of direct default labels. This section summarizes the business and regulatory context for building a responsible and robust credit scoring model.
 
 ### 1. Basel II Accord and the Need for Interpretability
 
@@ -17,6 +17,8 @@ However, using a proxy comes with business risks:
 - **Regulatory scrutiny:** Proxies must be carefully justified; unjustified proxies may not pass compliance reviews.
 
 ### 3. Trade-offs Between Simple and Complex Models
+
+\* There is a critical trade-off between simple, interpretable models and complex, high-performance models: \*
 
 - **Logistic Regression with Weight of Evidence (WoE)**
 
