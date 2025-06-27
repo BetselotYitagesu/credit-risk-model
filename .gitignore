@@ -1,0 +1,46 @@
+# Ignore Python cache and compiled files
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# Virtual environment
+venv/
+env/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# VS Code settings
+.vscode/
+
+# Data folders
+data/raw/
+data/processed/
+
+# Model files, logs, and experiment artifacts
+*.log
+*.joblib
+*.pkl
+*.h5
+mlruns/
+mlartifacts/
+
+# Environment and dependency files
+*.env
+.env
+*.DS_Store
+
+# Docker and build artifacts
+*.tar
+*.egg-info/
+dist/
+build/
+
+# Testing cache
+.pytest_cache/
+coverage/
+htmlcov/
+
+# CI/CD secrets or token files (if any)
+secrets.yaml
