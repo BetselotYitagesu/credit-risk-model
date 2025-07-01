@@ -16,5 +16,3 @@ pipeline = build_pipeline(numeric_cols, categorical_cols)
 
 # Fit-transform your features
 X = pipeline.fit_transform(agg_data)
-
-
